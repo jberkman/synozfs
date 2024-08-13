@@ -1,0 +1,9 @@
+zfs_services=(
+    pkg-zfs-import-cache.service
+    pkg-zfs-import.target
+    pkg-zfs-mount.service
+    pkg-zfs-share.service
+    pkg-zfs-zed.service
+    pkg-zfs-volume-wait.service
+    pkg-zfs.target
+)

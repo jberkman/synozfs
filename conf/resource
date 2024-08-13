@@ -1,0 +1,62 @@
+{
+    "usr-local-linker": {
+        "bin": [
+            "sbin/mount.zfs",
+            "usr/local/bin/arcstat",
+            "usr/local/bin/arc_summary",
+            "usr/local/bin/dbufstat",
+            "usr/local/bin/raidz_test",
+            "usr/local/bin/zilstat",
+            "usr/local/bin/zvol_wait",
+            "usr/local/sbin/fsck.zfs",
+            "usr/local/sbin/zdb",
+            "usr/local/sbin/zed",
+            "usr/local/sbin/zfs",
+            "usr/local/sbin/zfs_ids_to_path",
+            "usr/local/sbin/zgenhostid",
+            "usr/local/sbin/zhack",
+            "usr/local/sbin/zinject",
+            "usr/local/sbin/zpool",
+            "usr/local/sbin/zstream",
+            "usr/local/sbin/ztest"
+        ],
+        "etc": [
+            "usr/local/etc/zfs",
+            "usr/local/etc/zfs-default"
+        ],
+        "lib": [
+            "usr/local/lib/libnvpair.a",
+            "usr/local/lib/libnvpair.la",
+            "usr/local/lib/libnvpair.so.3.0.0",
+            "usr/local/lib/libnvpair.so.3",
+            "usr/local/lib/libnvpair.so",
+            "usr/local/lib/libuutil.a",
+            "usr/local/lib/libuutil.la",
+            "usr/local/lib/libuutil.so.3.0.0",
+            "usr/local/lib/libuutil.so.3",
+            "usr/local/lib/libuutil.so",
+            "usr/local/lib/libzfs_core.a",
+            "usr/local/lib/libzfs_core.la",
+            "usr/local/lib/libzfs_core.so.3.0.0",
+            "usr/local/lib/libzfs_core.so.3",
+            "usr/local/lib/libzfs_core.so",
+            "usr/local/lib/libzfs.a",
+            "usr/local/lib/libzfs.la",
+            "usr/local/lib/libzfs.so.4.1.0",
+            "usr/local/lib/libzfs.so.4",
+            "usr/local/lib/libzfs.so",
+            "usr/local/lib/libzfsbootenv.a",
+            "usr/local/lib/libzfsbootenv.la",
+            "usr/local/lib/libzfsbootenv.so.1.0.0",
+            "usr/local/lib/libzfsbootenv.so.1",
+            "usr/local/lib/libzfsbootenv.so",
+            "usr/local/lib/libzpool.a",
+            "usr/local/lib/libzpool.la",
+            "usr/local/lib/libzpool.so.5.0.0",
+            "usr/local/lib/libzpool.so.5",
+            "usr/local/lib/libzpool.so",
+            "usr/local/lib/zfs"
+        ]
+    },
+    "systemd-unit": {}
+}

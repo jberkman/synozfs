@@ -1,0 +1,15 @@
+{
+    "defaults": {
+        "run-as": "package"
+    },
+    "ctrl-script": [
+        {
+            "action": "start",
+            "run-as": "root"
+        },
+        {
+            "action": "stop",
+            "run-as": "root"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+--- zfs-2.2.5.orig/include/os/linux/kernel/linux/compiler_compat.h	2024-08-06 13:49:02.763948561 -0700
++++ zfs-2.2.5/include/os/linux/kernel/linux/compiler_compat.h	2024-08-11 07:49:06.026795145 -0700
+@@ -29,11 +29,11 @@
+ #include <linux/compiler.h>
+ 
+ #if !defined(zfs_fallthrough)
+-#if defined(HAVE_IMPLICIT_FALLTHROUGH)
+-#define	zfs_fallthrough		__attribute__((__fallthrough__))
+-#else
++//#if defined(HAVE_IMPLICIT_FALLTHROUGH)
++//#define	zfs_fallthrough		__attribute__((__fallthrough__))
++//#else
+ #define	zfs_fallthrough		((void)0)
+-#endif
++//#endif
+ #endif
+ 
+ #if !defined(READ_ONCE)

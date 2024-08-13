@@ -1,0 +1,56 @@
+#!/bin/sh
+
+. /usr/local/etc/zfs/zfs-functions
+. "/var/packages/${SYNOPKG_PKGNAME}/scripts/services.sh"
+
+load_module()
+{
+	module="$1"
+
+	# Load the zfs module stack
+	if ! check_module_loaded "$module"; then
+		if ! /sbin/insmod "$SYNOPKG_PKGDEST/lib/modules/$(uname -r)/extra/$module.ko"; then
+			return 5
+		fi
+	fi
+	return 0
+}
+
+case $1 in
+	start)
+		### Start this package.
+		set -e
+		for module in spl zfs ; do
+			load_module $module
+		done
+		chown root:root /usr/local/{etc,lib}/zfs/zed.d/*
+		#${SYNOSYSTEMCTL} enable ${zfs_services[@]}
+		#${SYNOSYSTEMCTL} start ${zfs_services[@]}
+		echo "$SYNOPKG_PKGNAME has been started." > $SYNOPKG_TEMP_LOGFILE
+		exit 0
+	;;
+	stop)
+		### Stop this package.
+		${SYNOSYSTEMCTL} disable ${zfs_services[@]}
+		${SYNOSYSTEMCTL} stop ${zfs_services[@]}
+		for module in zfs spl ; do
+			/sbin/rmmod $module
+		done
+		echo "$SYNOPKG_PKGNAME has been stopped." > $SYNOPKG_TEMP_LOGFILE
+		exit 0
+	;;
+	status)
+		### Check package alive.
+		if check_module_loaded zfs ; then
+			exit 0
+		else
+			exit 1
+		fi
+	;;
+	killall)
+        ;;
+	log)
+		exit 0
+	;;
+esac
+
