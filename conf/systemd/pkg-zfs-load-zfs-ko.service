@@ -1,0 +1,18 @@
+[Unit]
+Description=Load ZFS Kernel Module
+DefaultDependencies=no
+After=pkg-zfs-load-spl-ko.service
+Before=zfs-import-cache.service
+Before=zfs-import-scan.service
+Before=zfs-import.target
+ConditionPathIsDirectory=/sys/module/spl
+ConditionPathIsDirectory=!/sys/module/zfs
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/insmod /lib/modules/zfs.ko
+Slice=zfs.slice
+
+[Install]
+WantedBy=zfs.target

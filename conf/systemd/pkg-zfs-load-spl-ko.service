@@ -1,0 +1,15 @@
+[Unit]
+Description=Load SPL Kernel Module
+DefaultDependencies=no
+After=systemd-modules-load.service
+Before=local-fs.target
+ConditionPathIsDirectory=!/sys/module/spl
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/insmod /lib/modules/spl.ko
+Slice=zfs.slice
+
+[Install]
+WantedBy=zfs.target

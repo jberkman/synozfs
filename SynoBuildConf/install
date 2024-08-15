@@ -9,10 +9,10 @@ mkdir -p $PKG_DIR
 ### get spk packing functions
 source /pkgscripts/include/pkg_util.sh
 
+package_tgz_dir=/tmp/_package_tgz
+
 create_package_tgz() {
-	local firewere_version=
-	local package_tgz_dir=/tmp/_package_tgz
-	local package_modules_dir=$package_tgz_dir/lib/modules/
+	local package_modules_dir=$package_tgz_dir/lib/modules/4.4.302+
 
 	### clear destination directory
 	rm -rf $package_tgz_dir && mkdir -p $package_tgz_dir
@@ -20,7 +20,7 @@ create_package_tgz() {
 	### files needed by depmod
 	mkdir -p $package_modules_dir
 	for f in modules.order modules.builtin ; do
-		cp /usr/local/sysroot/usr/lib/modules/*/$f $package_modules_dir/*/
+		cp -v /usr/local/sysroot/usr/lib/modules/*/$f $package_modules_dir
 	done
 
 	### install needed file into PKG_DIR
@@ -29,7 +29,7 @@ create_package_tgz() {
 
 	### are no longer needed
 	for f in modules.order modules.builtin ; do
-		rm -f $package_modules_dir/*/$f
+		rm -vf $package_modules_dir/$f
 	done
 
 	### create package.tgz $1: source_dir $2: dest_dir

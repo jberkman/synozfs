@@ -1,0 +1,11 @@
+--- zfs-2.2.5.orig/etc/systemd/system/zfs-mount.service.in	2024-08-06 13:49:02.756948508 -0700
++++ zfs-2.2.5/etc/systemd/system/zfs-mount.service.in	2024-08-12 22:28:04.671409639 -0700
+@@ -5,7 +5,7 @@ DefaultDependencies=no
+ After=systemd-udev-settle.service
+ After=zfs-import.target
+ After=systemd-remount-fs.service
+-Before=local-fs.target
++#Before=local-fs.target
+ ConditionPathIsDirectory=/sys/module/zfs
+ 
+ [Service]
