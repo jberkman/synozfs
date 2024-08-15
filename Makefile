@@ -15,6 +15,7 @@ $(ZFS)/configure: $(ZFS).tar.gz
 	tar xf $<
 	cd $(ZFS) && patch -p1 < ../patches/compiler_compat.patch
 	cd $(ZFS) && patch -p1 < ../patches/zfs-mount-service.patch
+	cd $(ZFS) && patch -p1 < ../patches/getzoneid-enoent.patch
 	touch $@
 
 $(ZFS)/Makefile: $(ZFS)/configure
