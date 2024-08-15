@@ -10,7 +10,7 @@ CP_A="cp -afv"
 LN_S="ln -fsv"
 MKDIR_P="mkdir -pv"
 SYNOPKG_PKGDEST=/var/packages/zfs/target
-SMBINFO=/etc/samba/smbinfo.conf
+SMBCONF=/etc/samba/smb.conf
 
 $MKDIR_P /etc/default /etc/exports.d
 
@@ -35,7 +35,7 @@ systemctl enable zfs-import-scan.service $(awk '/^enable/ { print $2 }' < $SYNOP
 
 # Workaround for zfs not supporting syno_recvfile
 # https://github.com/jberkman/synozfs/issues/4
-if [ -s ${SMBINFO} ] && ! grep -q "min receivefile size" ${SMBINFO}
-    printf '\tmin receivefile size = 0\n' >> ${SMBINFO}
+if [ -s ${SMBCONF} ] && ! grep -q "min receivefile size" ${SMBCONF}
+    printf '\tmin receivefile size = 0\n' >> ${SMBCONF}
     killall -HUP smbd
 fi
