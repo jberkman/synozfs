@@ -1,15 +1,11 @@
 --- zfs-2.2.5.orig/lib/libspl/os/linux/zone.c	2024-08-06 13:49:03.450953818 -0700
-+++ zfs-2.2.5/lib/libspl/os/linux/zone.c	2024-08-15 00:06:18.443355526 -0700
-@@ -45,8 +45,11 @@ getzoneid(void)
- 		return (0);
++++ zfs-2.2.5/lib/libspl/os/linux/zone.c	2024-08-15 00:22:38.262293353 -0700
+@@ -46,7 +46,7 @@ getzoneid(void)
  
  	ssize_t r = readlink(path, buf, sizeof (buf) - 1);
--	if (r < 0)
-+	if (r < 0) {
-+		if (errno == ENOENT)
-+			return (GLOBAL_ZONEID);
- 		return (0);
-+	}
+ 	if (r < 0)
+-		return (0);
++		return errno == ENOENT ? (GLOBAL_ZONEID) : (0);
  
  	cp = strchr(buf, '[');
  	if (cp == NULL)
