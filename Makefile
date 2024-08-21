@@ -21,7 +21,8 @@ $(ZFS)/configure: $(ZFS).tar.gz
 $(ZFS)/Makefile: $(ZFS)/configure
 	cd $(ZFS) && ./configure $(subst ",,$(ConfigOpt)) \
 		--program-prefix="" --with-linux="${LINUX}" --with-python=3.8 \
-		--prefix=/usr --localstatedir=/var --enable-systemd \
+		--prefix=/usr --localstatedir=/var --sysconfdir=/etc \
+		--enable-systemd \
 		CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" \
 		CC="${CC}" CXX="${CXX}" LD="${LD}" AR="${AR}" \
 		RANLIB="${RANLIB}" NM="${NM}" READELF="${READELF}"

@@ -24,12 +24,12 @@ $LN_S $SYNOPKG_PKGDEST/etc/default/* /etc/default/
 $LN_S $SYNOPKG_PKGDEST/lib/udev/*_id /lib/udev/
 $LN_S $SYNOPKG_PKGDEST/lib/udev/rules.d/* /lib/udev/rules.d/
 $LN_S $SYNOPKG_PKGDEST/sbin/mount.zfs /sbin/
-$LN_S $SYNOPKG_PKGDEST/usr/etc/zfs /usr/etc/
+$LN_S $SYNOPKG_PKGDEST/etc/zfs /etc/
 $LN_S $SYNOPKG_PKGDEST/usr/lib/lib* /usr/lib/
 $LN_S $SYNOPKG_PKGDEST/usr/libexec/zfs /usr/libexec/
 $LN_S $SYNOPKG_PKGDEST/usr/sbin/* /usr/sbin/
 
-chown -c root:root /usr/{etc,libexec}/zfs/zed.d/*
+chown -c root:root /{etc,usr/libexec}/zfs/zed.d/*
 
 systemctl enable zfs-import-scan.service $(awk '/^enable/ { print $2 }' < $SYNOPKG_PKGDEST/usr/lib/systemd/system-preset/*)
 
