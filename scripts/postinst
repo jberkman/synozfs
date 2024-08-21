@@ -31,7 +31,7 @@ $LN_S $SYNOPKG_PKGDEST/usr/sbin/* /usr/sbin/
 
 chown -c root:root /{etc,usr/libexec}/zfs/zed.d/*
 
-systemctl enable zfs-import-scan.service $(awk '/^enable/ { print $2 }' < $SYNOPKG_PKGDEST/usr/lib/systemd/system-preset/*)
+systemctl enable pkg-zfs-load-spl-ko.service pkg-zfs-load-zfs-ko.service zfs-import-scan.service $(awk '/^enable/ { print $2 }' < $SYNOPKG_PKGDEST/usr/lib/systemd/system-preset/*)
 
 # Workaround for zfs not supporting syno_recvfile
 # https://github.com/jberkman/synozfs/issues/4
