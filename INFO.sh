@@ -3,7 +3,7 @@
 . /pkgscripts/include/pkg_util.sh
 
 package="zfs"
-version="2.2.5-0001"
+version="2.2.6-0001"
 os_min_ver="7.0-40761"
 description="OpenZFS is storage software which combines the functionality of traditional filesystems, volume manager, and more."
 arch="$(pkg_get_platform)"

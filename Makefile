@@ -2,7 +2,7 @@
 include /env.mak
 
 LINUX := $(SysRootLib)/modules/DSM-$(DSM_SHLIB_MAJOR).$(DSM_SHLIB_MINOR)/build
-ZFS := zfs-2.2.5
+ZFS := zfs-2.2.6
 
 .PHONY: all install packageinstall $(ZFS)
 
