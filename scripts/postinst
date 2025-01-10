@@ -17,7 +17,7 @@ $MKDIR_P /etc/default /etc/exports.d
 $CP_A --preserve=links $SYNOPKG_PKGDEST/usr/lib/systemd/system/* /usr/lib/systemd/system/
 
 for m in $(find $SYNOPKG_PKGDEST/lib/modules -type f); do
-    $LN_S $m /lib/modules/asd
+    $LN_S $m /lib/modules/
 done
 
 $LN_S $SYNOPKG_PKGDEST/etc/default/* /etc/default/
