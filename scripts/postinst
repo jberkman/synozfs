@@ -35,7 +35,7 @@ systemctl enable pkg-zfs-load-spl-ko.service pkg-zfs-load-zfs-ko.service zfs-imp
 
 # Workaround for zfs not supporting syno_recvfile
 # https://github.com/jberkman/synozfs/issues/4
-if [ -s ${SMBCONF} ] && ! grep -q "min receivefile size" ${SMBCONF}
+if [ -s ${SMBCONF} ] && ! grep -q "min receivefile size" ${SMBCONF}; then
     printf '\tmin receivefile size = 0\n' >> ${SMBCONF}
     killall -HUP smbd
 fi
